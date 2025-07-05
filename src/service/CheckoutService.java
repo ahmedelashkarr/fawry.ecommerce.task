@@ -8,10 +8,11 @@ import model.Cart.CartItem;
 import model.Product.ExpirableProduct;
 import model.Product.UnShippableProduct;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CheckoutService {
-    private static final int ShippingCost = 30;
+    private static double ShippingCost ;
 
     public static void checkout(Customer customer, Cart cart) {
 
@@ -27,6 +28,17 @@ public class CheckoutService {
                 .map(item -> (ExpirableProduct) item.getProduct())
                 .toList();
         ExpiredProductIsValid(expirableProducts);
+
+        //Calculate Shipping Service
+        List<Shippable> cartItemListShippable = new ArrayList<>();
+        for (CartItem cartItem : cart.getItems()){
+            if(cartItem.getProduct() instanceof  Shippable){
+                for (int i = 0; i < cartItem.getQuantity(); i++) {
+                    cartItemListShippable.add((Shippable)cartItem.getProduct());
+                }
+            }
+        }
+        ShippingCost = ShippingService.shipping(cartItemListShippable);
 
         //after all rights we reduce the balance
         customer.setBalance(customer.getBalance() - cart.getTotal() - ShippingCost);
@@ -68,8 +80,8 @@ public class CheckoutService {
         //print total price after adding shipping
         System.out.println("----------------------");
         System.out.println("Subtotal\t :" + subTotal);
-        System.out.println("Shipping\t :" + ShippingCost);
-        System.out.println("Amount\t\t :" + (subTotal + ShippingCost));
+        System.out.printf("Shipping\t :%.1f\n" , ShippingCost);
+        System.out.printf("Amount\t\t :%.1f\n" , (subTotal + ShippingCost));
 
         //calculate UnShipping product if exist to tell the customer details all the order and his balance
         List<CartItem> cartItemListUnShippable = cart.getItems().stream()
@@ -89,7 +101,7 @@ public class CheckoutService {
         }
 
         System.out.println("----------------------");
-        System.out.println("Customer Balance : " + customer.getBalance());
+        System.out.printf("Customer Balance :%.1f\n" , customer.getBalance());
 
     }
 
