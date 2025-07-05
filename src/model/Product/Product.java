@@ -44,11 +44,6 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-    public boolean isAvailable(int amount) {
-        return amount <= quantity;
-    }
-    public void reduceQuantity(int amount) {
-        if (amount <= quantity) quantity -= amount;
-    }
+
 
 }

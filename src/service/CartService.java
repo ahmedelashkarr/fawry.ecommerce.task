@@ -1,12 +1,10 @@
 package service;
 
-import exception.CartEmptyException;
-import exception.OutOfStockProductException;
+
 import model.Cart.Cart;
 import model.Cart.CartItem;
 import model.Product.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CartService {

@@ -1,7 +1,7 @@
 package model.Product;
 
 public class UnShippableProduct extends Product {
-    public UnShippableProduct(int quantity, double price, String name) {
+    public UnShippableProduct(String name, double price,int quantity ) {
         super(name, price, quantity);
 
     }
