@@ -1,3 +1,10 @@
+## 🧪 How to Run
+
+- Get the project by cloning or downloading it  
+- Open it using IntelliJ IDEA  
+- Make sure Java is installed and configured  
+- Run Main.java 
+
 ** Fawry E-commerce System ** 
 
 You can : 
