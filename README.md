@@ -8,8 +8,8 @@
 ** Fawry E-commerce System ** 
 
 * You can
- - add product to cart with specifi c quantity
- - Customers are able to do checkout with items in the cart
+  - add product to cart with specifi c quantity
+  - Customers are able to do checkout with items in the cart
 
 Screenshot for main :
      ![image](https://github.com/user-attachments/assets/d4dbc66d-87b8-439f-85e0-77c9787f9268)
