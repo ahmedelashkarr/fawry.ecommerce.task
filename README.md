@@ -7,7 +7,7 @@
 
 ** Fawry E-commerce System ** 
 
-You can : 
+You can
  -add product to cart with specifi c quantity
  -Customers are able to do checkout with items in the cart
 
